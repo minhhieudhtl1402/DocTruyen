@@ -1,56 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#371E1E"
     android:gravity="center"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <!--    <LinearLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="150dp"-->
-    <!--        android:background="@color/fantasy"-->
-    <!--        android:orientation="horizontal">-->
-
-    <!--        <TextView-->
-    <!--            android:textColor="@color/black"-->
-    <!--            android:id="@+id/tv_name"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="match_parent"-->
-    <!--            android:layout_marginStart="25dp"-->
-    <!--            android:fontFamily="sans-serif-black"-->
-    <!--            android:gravity="center_vertical"-->
-    <!--            android:text="Hello"-->
-    <!--            android:textSize="24sp"-->
-    <!--            />-->
-
-    <!--        <com.google.android.material.imageview.ShapeableImageView-->
-    <!--            android:layout_width="100dp"-->
-    <!--            android:layout_height="100dp"-->
-
-    <!--            android:layout_gravity="center_vertical"-->
-    <!--            android:layout_marginStart="100dp"-->
-    <!--            android:padding="5dp"-->
-    <!--            app:srcCompat="@drawable/img"-->
-    <!--            app:strokeColor="#B46060"-->
-    <!--            app:strokeWidth="7dp"-->
-    <!--            app:shapeAppearanceOverlay="@style/cut_corner"-->
-
-    <!--            />-->
-    <!--    </LinearLayout>-->
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/ll_toolbar"
         android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#e91e63"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="?actionBarItemBackground"
+            android:padding="12dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/baseline_navigate_before_24" />
+
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:text="Truyện Ngôn Tình"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_rc"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:background="@drawable/ic_wave"
-        android:layout_height="match_parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_toolbar">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rc_topic"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </RelativeLayout>
 
+    </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

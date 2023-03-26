@@ -15,8 +15,15 @@ import com.example.mar24recyclerview.StoryActivity
 import com.example.mar24recyclerview.model.Topic
 
 class TopicAdapter : Adapter<TopicAdapter.TopicViewHolder> {
+    companion object {
+        const val CATEGORY_THING = 1
+        const val CATEGORY_JOKE = 2
+        const val CATEGORY_TRAGEDY = 3
+        const val CATEGORY_LOVE = 4
+    }
+
     var topics: MutableList<Topic>
-    var context: Context? = null
+    var context: Context
 
     constructor(topics: MutableList<Topic>, context: Context) : super() {
         this.topics = topics
@@ -50,14 +57,30 @@ class TopicAdapter : Adapter<TopicAdapter.TopicViewHolder> {
         holder.iv_img.setImageResource(topic.idImg)
 
         holder.itemView.setOnClickListener {
-            when (holder.tv_name.text) {
-                "Truyện suy ngẫm" -> {
+            when (topic.id) {
+                1 -> {
                     val intent = Intent(context, StoryActivity::class.java)
-                    context?.startActivity(intent)
+                    intent.putExtra("TYPE", TopicAdapter.CATEGORY_THING)
+                    intent.putExtra("TOPIC", topic)
+                    context.startActivity(intent)
                 }
-                "Truyện cười" -> {
-                    val intent = Intent(context, JokeActivity::class.java)
-                    context?.startActivity(intent)
+                2 -> {
+                    val intent = Intent(context, StoryActivity::class.java)
+                    intent.putExtra("TYPE", TopicAdapter.CATEGORY_JOKE)
+                    intent.putExtra("TOPIC", topic)
+                    context.startActivity(intent)
+                }
+                3 -> {
+                    val intent = Intent(context, StoryActivity::class.java)
+                    intent.putExtra("TYPE", TopicAdapter.CATEGORY_TRAGEDY)
+                    intent.putExtra("TOPIC", topic)
+                    context.startActivity(intent)
+                }
+                4 -> {
+                    val intent = Intent(context, StoryActivity::class.java)
+                    intent.putExtra("TYPE", CATEGORY_LOVE)
+                    intent.putExtra("TOPIC", topic)
+                    context.startActivity(intent)
                 }
 
             }

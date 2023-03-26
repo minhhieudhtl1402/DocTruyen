@@ -10,7 +10,7 @@ import com.example.mar24recyclerview.model.Story
 import com.example.mar24recyclerview.model.Topic
 
 class MainActivity : AppCompatActivity() {
-    private val story: Topic = Topic(
+    private val story: Topic = Topic(1,
         "Truyện suy ngẫm", R.drawable.img_2, arrayListOf(
             Story(
                 "Ông lão già làng",
@@ -172,7 +172,7 @@ class MainActivity : AppCompatActivity() {
 
         )
     )
-    private val jokes: Topic = Topic(
+    private val jokes: Topic = Topic(2,
         "Truyện cười", R.drawable.img_1, arrayListOf(
             Story(
                 "Thì thầm",
@@ -219,7 +219,7 @@ class MainActivity : AppCompatActivity() {
             )
         )
     )
-    private val tragedies = Topic(
+    private val tragedies = Topic(3,
         "Truyện Bi Kịch", R.drawable.img_3, stories = arrayListOf(
             Story(
                 "My Beloved And I.",
@@ -239,7 +239,7 @@ class MainActivity : AppCompatActivity() {
             )
         )
     )
-    private val loveStory = Topic(
+    private val loveStory = Topic(4,
         "Truyện Ngôn Tình", R.drawable.img_4, stories = arrayListOf(
             Story(
                 " Ngày Chia Tay Hôm Ấy Trời Mưa Rất To",
@@ -278,6 +278,6 @@ class MainActivity : AppCompatActivity() {
         rcTopic = findViewById(R.id.rc_topic)
         val adapter = TopicAdapter(topics, this)
         rcTopic.adapter = adapter
-        rcTopic.layoutManager = GridLayoutManager(this, 1, GridLayoutManager.VERTICAL, false)
+        rcTopic.layoutManager = GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
     }
 }
